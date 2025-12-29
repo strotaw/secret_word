@@ -1,11 +1,11 @@
 {
   "b": 70,
   "disableInputWhenNotFocused": true,
-  "mangledName": "Untitled_32scene",
-  "name": "Untitled scene",
+  "mangledName": "Level_951_32Scene",
+  "name": "Level_1 Scene",
   "r": 62,
   "standardSortMethod": true,
-  "stopSoundsOnStartup": true,
+  "stopSoundsOnStartup": false,
   "title": "",
   "v": 53,
   "uiSettings": {
@@ -20,7 +20,7 @@
     "gridColor": 10401023,
     "gridAlpha": 0.8,
     "snap": false,
-    "zoomFactor": 0.6455105703311578,
+    "zoomFactor": 0.4481978045410425,
     "windowMask": false,
     "selectedLayer": ""
   },
@@ -50,7 +50,7 @@
   ],
   "variables": [
     {
-      "name": "kata",
+      "name": "soal",
       "type": "array",
       "children": []
     },
@@ -58,16 +58,6 @@
       "name": "counter1",
       "type": "number",
       "value": 0
-    },
-    {
-      "name": "isBalokFound",
-      "type": "boolean",
-      "value": false
-    },
-    {
-      "name": "soal",
-      "type": "structure",
-      "children": []
     }
   ],
   "instances": [
@@ -96,8 +86,8 @@
       "name": "orang",
       "persistentUuid": "57b251b8-7153-4448-8d60-a57531e991c1",
       "width": 0,
-      "x": 468,
-      "y": 155,
+      "x": 581,
+      "y": 127,
       "zOrder": 3,
       "numberProperties": [],
       "stringProperties": [],
@@ -112,8 +102,8 @@
       "name": "balok",
       "persistentUuid": "ac1ed09a-94cd-4309-85a5-d087bf424df7",
       "width": 0,
-      "x": 1011,
-      "y": 292,
+      "x": 552,
+      "y": 383,
       "zOrder": 4,
       "numberProperties": [],
       "stringProperties": [],
@@ -216,8 +206,8 @@
       "name": "balok",
       "persistentUuid": "2a5c8c10-6a97-44e9-a4a9-9fd11acb424d",
       "width": 0,
-      "x": 650,
-      "y": 108,
+      "x": 456,
+      "y": 201,
       "zOrder": 4,
       "numberProperties": [],
       "stringProperties": [],
@@ -232,8 +222,8 @@
       "name": "balok",
       "persistentUuid": "b2705d09-bf10-46a2-bfb6-0e954876dcdd",
       "width": 0,
-      "x": 836,
-      "y": 393,
+      "x": 649,
+      "y": 383,
       "zOrder": 4,
       "numberProperties": [],
       "stringProperties": [],
@@ -4030,38 +4020,12 @@
   },
   "events": [
     {
-      "type": "BuiltinCommonInstructions::Standard",
-      "conditions": [
-        {
-          "type": {
-            "value": "DepartScene"
-          },
-          "parameters": [
-            ""
-          ]
-        }
-      ],
-      "actions": [
-        {
-          "type": {
-            "value": "JSONResourceLoader::LoadJSONToScene"
-          },
-          "parameters": [
-            "",
-            "data_secret-word.JSON",
-            "soal",
-            ""
-          ]
-        }
-      ]
-    },
-    {
       "colorB": 228,
       "colorG": 176,
       "colorR": 74,
       "creationTime": 0,
       "folded": true,
-      "name": "Move events",
+      "name": "Move Event",
       "source": "",
       "type": "BuiltinCommonInstructions::Group",
       "events": [
@@ -4283,8 +4247,7 @@
       "colorG": 176,
       "colorR": 74,
       "creationTime": 0,
-      "folded": true,
-      "name": "Balok events",
+      "name": "Balok Event",
       "source": "",
       "type": "BuiltinCommonInstructions::Group",
       "events": [
@@ -4301,7 +4264,7 @@
                 "balok",
                 "Animation",
                 "=",
-                "counter1"
+                "soal.kata[counter1]"
               ]
             },
             {
@@ -4556,7 +4519,7 @@
                 "value": "PushString"
               },
               "parameters": [
-                "kata",
+                "soal",
                 "balok.Animation::Name()"
               ]
             }
@@ -4602,27 +4565,10 @@
       "colorR": 74,
       "creationTime": 0,
       "folded": true,
-      "name": "WAITING",
+      "name": "Grouped events",
       "source": "",
       "type": "BuiltinCommonInstructions::Group",
       "events": [
-        {
-          "disabled": true,
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": [
-            {
-              "type": {
-                "value": "SeparateFromObjects"
-              },
-              "parameters": [
-                "orang",
-                "map1",
-                ""
-              ]
-            }
-          ]
-        },
         {
           "disabled": true,
           "type": "BuiltinCommonInstructions::Standard",
@@ -4651,6 +4597,23 @@
           ]
         },
         {
+          "disabled": true,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "orang",
+                "map1",
+                ""
+              ]
+            }
+          ]
+        },
+        {
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
           "actions": [
@@ -4670,697 +4633,37 @@
       "parameters": []
     },
     {
-      "colorB": 228,
-      "colorG": 176,
-      "colorR": 74,
-      "creationTime": 0,
-      "folded": true,
-      "name": "Gameplay events",
-      "source": "",
-      "type": "BuiltinCommonInstructions::Group",
-      "events": [
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
         {
-          "folded": true,
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "CollisionNP"
-              },
-              "parameters": [
-                "ular1",
-                "huruf_huruf",
-                "",
-                "",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "SetBooleanVariable"
-              },
-              "parameters": [
-                "IsHurufFound",
-                "False",
-                ""
-              ]
-            }
-          ],
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::ForEach",
-              "object": "list_huruf2",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "Visible"
-                      },
-                      "parameters": [
-                        "list_huruf2"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "AnimatableCapability::AnimatableBehavior::Name"
-                      },
-                      "parameters": [
-                        "list_huruf2",
-                        "Animation",
-                        "=",
-                        "huruf_huruf.Animation::Name()"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "BooleanVariable"
-                      },
-                      "parameters": [
-                        "IsHurufFound",
-                        "=",
-                        ""
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "PushString"
-                      },
-                      "parameters": [
-                        "jawaban",
-                        "huruf_huruf.Animation::Name()"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Montre"
-                      },
-                      "parameters": [
-                        "list_huruf2",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetBooleanVariable"
-                      },
-                      "parameters": [
-                        "IsHurufFound",
-                        "True",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Delete"
-                      },
-                      "parameters": [
-                        "huruf_huruf",
-                        ""
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "Visible"
-                      },
-                      "parameters": [
-                        "list_huruf2"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "AnimatableCapability::AnimatableBehavior::Name"
-                      },
-                      "parameters": [
-                        "list_huruf2",
-                        "Animation",
-                        "=",
-                        "huruf_huruf.Animation::Name()"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "BuiltinCommonInstructions::CompareNumbers"
-                      },
-                      "parameters": [
-                        "VariableChildCount(jawaban)",
-                        "=",
-                        "VariableChildCount(HurufSoal)"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "spawn",
-                        "=",
-                        "1"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "counter",
-                        "=",
-                        "0"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "index2",
-                        "=",
-                        "0"
-                      ]
-                    }
-                  ],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "BuiltinCommonInstructions::Once"
-                          },
-                          "parameters": []
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetNumberVariable"
-                          },
-                          "parameters": [
-                            "points",
-                            "+",
-                            "1"
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "BooleanVariable"
-                  },
-                  "parameters": [
-                    "IsHurufFound",
-                    "=",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "damage",
-                    "+",
-                    "1"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetNumberVariable"
-                  },
-                  "parameters": [
-                    "Nyawa",
-                    "-",
-                    "1"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "huruf_huruf",
-                    ""
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "NumberVariable"
-              },
-              "parameters": [
-                "spawn",
-                "=",
-                "1"
-              ]
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "ChangeTimeScale"
-              },
-              "parameters": [
-                "",
-                "0"
-              ]
-            },
-            {
-              "type": {
-                "value": "ShowLayer"
-              },
-              "parameters": [
-                "",
-                "\"awal_layer\""
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "GameStarted",
-                "=",
-                "0"
-              ]
-            },
-            {
-              "type": {
-                "value": "ClearVariableChildren"
-              },
-              "parameters": [
-                "HurufSoal"
-              ]
-            },
-            {
-              "type": {
-                "value": "ClearVariableChildren"
-              },
-              "parameters": [
-                "jawaban"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "random",
-                "=",
-                "RandomInRange(0, 4)"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetNumberVariable"
-              },
-              "parameters": [
-                "jumlahHuruf",
-                "=",
-                "StrLength(daftarKata[random].kata)"
-              ]
-            },
-            {
-              "type": {
-                "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-              },
-              "parameters": [
-                "Text_Soal",
-                "Text",
-                "=",
-                "daftarKata[random].kata"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetStringVariable"
-              },
-              "parameters": [
-                "soal",
-                "=",
-                "daftarKata[random].huruf"
-              ]
-            },
-            {
-              "type": {
-                "value": "SetStringVariable"
-              },
-              "parameters": [
-                "HasilStrip",
-                "=",
-                "\"\""
-              ]
-            },
-            {
-              "type": {
-                "value": "SetStringVariable"
-              },
-              "parameters": [
-                "text",
-                "=",
-                "\"\""
-              ]
-            }
-          ],
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Repeat",
-              "repeatExpression": "jumlahHuruf",
-              "conditions": [],
-              "actions": [],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "Create"
-                      },
-                      "parameters": [
-                        "",
-                        "list_huruf2",
-                        "490 + 78 * index2",
-                        "40",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "AnimatableCapability::AnimatableBehavior::SetName"
-                      },
-                      "parameters": [
-                        "list_huruf2",
-                        "Animation",
-                        "=",
-                        "daftarKata[random].huruf[index2]"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetStringVariable"
-                      },
-                      "parameters": [
-                        "HasilStrip",
-                        "=",
-                        "HasilStrip + \"_   \"\n"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "index2",
-                        "+",
-                        "1"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "PushString"
-                      },
-                      "parameters": [
-                        "HurufSoal",
-                        "daftarKata[random].huruf[counter]"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Create"
-                      },
-                      "parameters": [
-                        "",
-                        "huruf_huruf",
-                        "RandomInRange(274, 993)",
-                        "RandomInRange(199, 546)",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "AnimatableCapability::AnimatableBehavior::SetName"
-                      },
-                      "parameters": [
-                        "huruf_huruf",
-                        "Animation",
-                        "=",
-                        "HurufSoal[counter]"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "counter",
-                        "+",
-                        "1"
-                      ]
-                    }
-                  ],
-                  "events": [
-                    {
-                      "infiniteLoopWarning": true,
-                      "type": "BuiltinCommonInstructions::While",
-                      "whileConditions": [
-                        {
-                          "type": {
-                            "value": "AjoutObjConcern"
-                          },
-                          "parameters": [
-                            "",
-                            "huruf_huruf"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "CollisionNP"
-                          },
-                          "parameters": [
-                            "huruf_huruf",
-                            "huruf_huruf",
-                            "",
-                            "",
-                            ""
-                          ]
-                        }
-                      ],
-                      "conditions": [],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "MettreXY"
-                          },
-                          "parameters": [
-                            "huruf_huruf",
-                            "=",
-                            "RandomInRange(274, 993)",
-                            "=",
-                            "RandomInRange(199, 546)"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "infiniteLoopWarning": true,
-                      "type": "BuiltinCommonInstructions::While",
-                      "whileConditions": [
-                        {
-                          "type": {
-                            "value": "AjoutObjConcern"
-                          },
-                          "parameters": [
-                            "",
-                            "huruf_huruf"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "CollisionNP"
-                          },
-                          "parameters": [
-                            "huruf_huruf",
-                            "ular1",
-                            "",
-                            "",
-                            ""
-                          ]
-                        }
-                      ],
-                      "conditions": [],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "ClearVariableChildren"
-                          },
-                          "parameters": [
-                            "jawaban"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "MettreXY"
-                          },
-                          "parameters": [
-                            "huruf_huruf",
-                            "=",
-                            "RandomInRange(274, 993)",
-                            "=",
-                            "RandomInRange(199, 546)"
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "infiniteLoopWarning": true,
-                  "type": "BuiltinCommonInstructions::While",
-                  "whileConditions": [
-                    {
-                      "type": {
-                        "value": "NumberVariable"
-                      },
-                      "parameters": [
-                        "acak",
-                        "<",
-                        "3"
-                      ]
-                    }
-                  ],
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "Create"
-                      },
-                      "parameters": [
-                        "",
-                        "huruf_huruf",
-                        "RandomInRange(274, 993)",
-                        "RandomInRange(199, 546)",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "AnimatableCapability::AnimatableBehavior::SetName"
-                      },
-                      "parameters": [
-                        "huruf_huruf",
-                        "Animation",
-                        "=",
-                        "kata[RandomInRange(0, 25)]"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "acak",
-                        "+",
-                        "1"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "TextContainerCapability::TextContainerBehavior::SetValue"
-                      },
-                      "parameters": [
-                        "Text_Soal2",
-                        "Text",
-                        "=",
-                        "HasilStrip"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Cache"
-                      },
-                      "parameters": [
-                        "list_huruf2"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "SetNumberVariable"
-                      },
-                      "parameters": [
-                        "spawn",
-                        "=",
-                        "0"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
+          "type": {
+            "value": "DepartScene"
+          },
+          "parameters": [
+            ""
           ]
         }
       ],
-      "parameters": []
+      "actions": [
+        {
+          "type": {
+            "value": "JSONResourceLoader::LoadJSONToScene"
+          },
+          "parameters": [
+            "",
+            "data_secret-word.JSON",
+            "soal",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Link",
+      "include": {
+        "includeConfig": 0
+      },
+      "target": "BGM"
     }
   ],
   "layers": [

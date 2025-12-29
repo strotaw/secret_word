@@ -5,7 +5,7 @@
   "name": "Level Scene",
   "r": 62,
   "standardSortMethod": true,
-  "stopSoundsOnStartup": true,
+  "stopSoundsOnStartup": false,
   "title": "",
   "v": 53,
   "uiSettings": {
@@ -13,16 +13,33 @@
     "gridType": "rectangular",
     "gridWidth": 32,
     "gridHeight": 32,
+    "gridDepth": 32,
     "gridOffsetX": 0,
     "gridOffsetY": 0,
+    "gridOffsetZ": 0,
     "gridColor": 10401023,
     "gridAlpha": 0.8,
     "snap": false,
-    "zoomFactor": 0.35534345588169836,
+    "zoomFactor": 0.6040838749988868,
     "windowMask": false,
     "selectedLayer": ""
   },
-  "objectsGroups": [],
+  "objectsGroups": [
+    {
+      "name": "level",
+      "objects": [
+        {
+          "name": "level_1"
+        },
+        {
+          "name": "level_2"
+        },
+        {
+          "name": "level_3"
+        }
+      ]
+    }
+  ],
   "variables": [],
   "instances": [
     {
@@ -31,11 +48,11 @@
       "height": 0,
       "keepRatio": true,
       "layer": "",
-      "name": "title",
-      "persistentUuid": "dd542145-5d78-42b0-9788-3d74f2596359",
+      "name": "Pilih_level",
+      "persistentUuid": "28d90538-9408-4b61-b8e4-1f19774b5b74",
       "width": 0,
-      "x": -150,
-      "y": 0,
+      "x": -120,
+      "y": 45,
       "zOrder": 1,
       "numberProperties": [],
       "stringProperties": [],
@@ -48,10 +65,10 @@
       "keepRatio": true,
       "layer": "",
       "name": "level_1",
-      "persistentUuid": "3714289e-bd36-45e9-8e2e-0eb4c629bd25",
+      "persistentUuid": "a679627c-d92f-47e8-8f47-84586a87f207",
       "width": 0,
-      "x": 146,
-      "y": 232,
+      "x": 200,
+      "y": 220,
       "zOrder": 2,
       "numberProperties": [],
       "stringProperties": [],
@@ -63,11 +80,11 @@
       "height": 0,
       "keepRatio": true,
       "layer": "",
-      "name": "back_button",
-      "persistentUuid": "b787fc6c-6d64-4657-9933-2e86b9b77463",
+      "name": "level_2",
+      "persistentUuid": "39762af8-2143-4a91-b872-3e34bb2f2fa1",
       "width": 0,
-      "x": 0,
-      "y": -30,
+      "x": 500,
+      "y": 220,
       "zOrder": 3,
       "numberProperties": [],
       "stringProperties": [],
@@ -79,11 +96,11 @@
       "height": 0,
       "keepRatio": true,
       "layer": "",
-      "name": "level_2",
-      "persistentUuid": "8c541e72-229c-4bc9-8f12-9cc7c7fe6d23",
+      "name": "level_3",
+      "persistentUuid": "33514dc1-f459-4c14-9acb-fb4e38cba662",
       "width": 0,
-      "x": 486,
-      "y": 232,
+      "x": 800,
+      "y": 220,
       "zOrder": 4,
       "numberProperties": [],
       "stringProperties": [],
@@ -95,12 +112,28 @@
       "height": 0,
       "keepRatio": true,
       "layer": "",
-      "name": "level_3",
-      "persistentUuid": "ab11afb4-0849-42c2-a2d2-c75f57b8da8b",
+      "name": "mulai_button",
+      "persistentUuid": "a954c328-7fe2-4c9a-a6c5-7082bebc2905",
       "width": 0,
-      "x": 826,
-      "y": 232,
+      "x": 354,
+      "y": 447,
       "zOrder": 5,
+      "numberProperties": [],
+      "stringProperties": [],
+      "initialVariables": []
+    },
+    {
+      "angle": 0,
+      "customSize": false,
+      "height": 0,
+      "keepRatio": true,
+      "layer": "",
+      "name": "back_button",
+      "persistentUuid": "f37e7005-bfdc-4e68-867f-e3d5d0be3548",
+      "width": 0,
+      "x": -24,
+      "y": -33,
+      "zOrder": 6,
       "numberProperties": [],
       "stringProperties": [],
       "initialVariables": []
@@ -110,7 +143,7 @@
     {
       "adaptCollisionMaskAutomatically": true,
       "assetStoreId": "",
-      "name": "title",
+      "name": "Pilih_level",
       "type": "Sprite",
       "updateIfNotVisible": false,
       "variables": [],
@@ -173,9 +206,40 @@
       "name": "level_1",
       "type": "Sprite",
       "updateIfNotVisible": false,
-      "variables": [],
-      "effects": [],
-      "behaviors": [],
+      "variables": [
+        {
+          "name": "click",
+          "type": "number",
+          "value": 1
+        }
+      ],
+      "effects": [
+        {
+          "disabled": true,
+          "effectType": "Outline",
+          "name": "nyala",
+          "doubleParameters": {
+            "padding": 5,
+            "thickness": 5
+          },
+          "stringParameters": {
+            "color": "255;255;255"
+          },
+          "booleanParameters": {}
+        }
+      ],
+      "behaviors": [
+        {
+          "name": "ButtonFSM",
+          "type": "ButtonStates::ButtonFSM",
+          "ShouldCheckHovering": true,
+          "State": "Idle",
+          "TouchId": 0,
+          "TouchIsInside": false,
+          "MouseIsInside": false,
+          "Index": 2.0247e-320
+        }
+      ],
       "animations": [
         {
           "name": "1",
@@ -233,9 +297,40 @@
       "name": "level_2",
       "type": "Sprite",
       "updateIfNotVisible": false,
-      "variables": [],
-      "effects": [],
-      "behaviors": [],
+      "variables": [
+        {
+          "name": "click",
+          "type": "number",
+          "value": 2
+        }
+      ],
+      "effects": [
+        {
+          "disabled": true,
+          "effectType": "Outline",
+          "name": "nyala",
+          "doubleParameters": {
+            "padding": 5,
+            "thickness": 5
+          },
+          "stringParameters": {
+            "color": "255;255;255"
+          },
+          "booleanParameters": {}
+        }
+      ],
+      "behaviors": [
+        {
+          "name": "ButtonFSM",
+          "type": "ButtonStates::ButtonFSM",
+          "ShouldCheckHovering": true,
+          "State": "Idle",
+          "TouchId": 0,
+          "TouchIsInside": false,
+          "MouseIsInside": false,
+          "Index": 2.0247e-320
+        }
+      ],
       "animations": [
         {
           "name": "0",
@@ -341,9 +436,40 @@
       "name": "level_3",
       "type": "Sprite",
       "updateIfNotVisible": false,
-      "variables": [],
-      "effects": [],
-      "behaviors": [],
+      "variables": [
+        {
+          "name": "click",
+          "type": "number",
+          "value": 3
+        }
+      ],
+      "effects": [
+        {
+          "disabled": true,
+          "effectType": "Outline",
+          "name": "nyala",
+          "doubleParameters": {
+            "padding": 5,
+            "thickness": 5
+          },
+          "stringParameters": {
+            "color": "255;255;255"
+          },
+          "booleanParameters": {}
+        }
+      ],
+      "behaviors": [
+        {
+          "name": "ButtonFSM",
+          "type": "ButtonStates::ButtonFSM",
+          "ShouldCheckHovering": true,
+          "State": "Idle",
+          "TouchId": 0,
+          "TouchIsInside": false,
+          "MouseIsInside": false,
+          "Index": 2.0247e-320
+        }
+      ],
       "animations": [
         {
           "name": "0",
@@ -446,12 +572,23 @@
     {
       "adaptCollisionMaskAutomatically": true,
       "assetStoreId": "",
-      "name": "back_button",
+      "name": "mulai_button",
       "type": "Sprite",
       "updateIfNotVisible": false,
       "variables": [],
       "effects": [],
-      "behaviors": [],
+      "behaviors": [
+        {
+          "name": "ButtonFSM",
+          "type": "ButtonStates::ButtonFSM",
+          "ShouldCheckHovering": true,
+          "State": "Idle",
+          "TouchId": 0,
+          "TouchIsInside": false,
+          "MouseIsInside": false,
+          "Index": 2.0247e-320
+        }
+      ],
       "animations": [
         {
           "name": "",
@@ -463,7 +600,78 @@
               "sprites": [
                 {
                   "hasCustomCollisionMask": true,
-                  "image": "button_kembali.png",
+                  "image": "button_mulai2.png",
+                  "points": [],
+                  "originPoint": {
+                    "name": "origine",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "centerPoint": {
+                    "automatic": true,
+                    "name": "centre",
+                    "x": 0,
+                    "y": 0
+                  },
+                  "customCollisionMask": [
+                    [
+                      {
+                        "x": 112,
+                        "y": 112
+                      },
+                      {
+                        "x": 536,
+                        "y": 112
+                      },
+                      {
+                        "x": 536,
+                        "y": 224
+                      },
+                      {
+                        "x": 112,
+                        "y": 224
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "adaptCollisionMaskAutomatically": true,
+      "assetStoreId": "",
+      "name": "back_button",
+      "type": "Sprite",
+      "updateIfNotVisible": false,
+      "variables": [],
+      "effects": [],
+      "behaviors": [
+        {
+          "name": "ButtonFSM",
+          "type": "ButtonStates::ButtonFSM",
+          "ShouldCheckHovering": true,
+          "State": "Idle",
+          "TouchId": 0,
+          "TouchIsInside": false,
+          "MouseIsInside": false,
+          "Index": 2.0247e-320
+        }
+      ],
+      "animations": [
+        {
+          "name": "",
+          "useMultipleDirections": false,
+          "directions": [
+            {
+              "looping": false,
+              "timeBetweenFrames": 0.08,
+              "sprites": [
+                {
+                  "hasCustomCollisionMask": true,
+                  "image": "button_kembali2.png",
                   "points": [],
                   "originPoint": {
                     "name": "origine",
@@ -508,28 +716,388 @@
     "folderName": "__ROOT",
     "children": [
       {
-        "objectName": "title"
+        "objectName": "Pilih_level"
       },
       {
         "objectName": "level_1"
-      },
-      {
-        "objectName": "back_button"
       },
       {
         "objectName": "level_2"
       },
       {
         "objectName": "level_3"
+      },
+      {
+        "objectName": "mulai_button"
+      },
+      {
+        "objectName": "back_button"
       }
     ]
   },
-  "events": [],
+  "events": [
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "DepartScene"
+          },
+          "parameters": [
+            ""
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "EffectCapability::EffectBehavior::EnableEffect"
+          },
+          "parameters": [
+            "level",
+            "Effect",
+            "\"nyala\"",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "ButtonStates::ButtonFSM::IsClicked"
+          },
+          "parameters": [
+            "level_1",
+            "ButtonFSM",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "PlaySoundCanal"
+          },
+          "parameters": [
+            "",
+            "UI - Button.wav",
+            "5",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "SetNumberVariable"
+          },
+          "parameters": [
+            "pick_level",
+            "=",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "ButtonStates::ButtonFSM::IsClicked"
+          },
+          "parameters": [
+            "level_2",
+            "ButtonFSM",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "AnimatableCapability::AnimatableBehavior::Name"
+          },
+          "parameters": [
+            "level_2",
+            "Animation",
+            "=",
+            "\"1\""
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "PlaySoundCanal"
+          },
+          "parameters": [
+            "",
+            "UI - Button.wav",
+            "5",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "SetNumberVariable"
+          },
+          "parameters": [
+            "pick_level",
+            "=",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "ButtonStates::ButtonFSM::IsClicked"
+          },
+          "parameters": [
+            "level_3",
+            "ButtonFSM",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "AnimatableCapability::AnimatableBehavior::Name"
+          },
+          "parameters": [
+            "level_3",
+            "Animation",
+            "=",
+            "\"1\""
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "PlaySoundCanal"
+          },
+          "parameters": [
+            "",
+            "UI - Button.wav",
+            "5",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "SetNumberVariable"
+          },
+          "parameters": [
+            "pick_level",
+            "=",
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "ButtonStates::ButtonFSM::IsClicked"
+          },
+          "parameters": [
+            "mulai_button",
+            "ButtonFSM",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "Scene"
+          },
+          "parameters": [
+            "",
+            "\"Loading Scene\"",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "ButtonStates::ButtonFSM::IsClicked"
+          },
+          "parameters": [
+            "level",
+            "ButtonFSM",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "NumberVariable"
+          },
+          "parameters": [
+            "pick_level",
+            "=",
+            "level.click"
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "EffectCapability::EffectBehavior::EnableEffect"
+          },
+          "parameters": [
+            "level",
+            "Effect",
+            "\"nyala\"",
+            "yes"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "AnimatableCapability::AnimatableBehavior::Name"
+          },
+          "parameters": [
+            "level",
+            "Animation",
+            "=",
+            "\"1\""
+          ]
+        },
+        {
+          "type": {
+            "value": "NumberVariable"
+          },
+          "parameters": [
+            "pick_level",
+            "!=",
+            "level.click"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "EffectCapability::EffectBehavior::EnableEffect"
+          },
+          "parameters": [
+            "level",
+            "Effect",
+            "\"nyala\"",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Standard",
+      "conditions": [
+        {
+          "type": {
+            "value": "ButtonStates::ButtonFSM::IsClicked"
+          },
+          "parameters": [
+            "back_button",
+            "ButtonFSM",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "BuiltinCommonInstructions::Once"
+          },
+          "parameters": []
+        }
+      ],
+      "actions": [
+        {
+          "type": {
+            "value": "PlaySoundCanal"
+          },
+          "parameters": [
+            "",
+            "UI - Backk Button.wav",
+            "5",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": {
+            "value": "Scene"
+          },
+          "parameters": [
+            "",
+            "\"MainMenu Scene\"",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BuiltinCommonInstructions::Link",
+      "include": {
+        "includeConfig": 0
+      },
+      "target": "BGM"
+    }
+  ],
   "layers": [
     {
       "ambientLightColorB": 200,
       "ambientLightColorG": 200,
       "ambientLightColorR": 200,
+      "camera2DPlaneMaxDrawingDistance": 5000,
       "camera3DFarPlaneDistance": 10000,
       "camera3DFieldOfView": 45,
       "camera3DNearPlaneDistance": 3,
@@ -595,6 +1163,10 @@
     {
       "name": "Animation",
       "type": "AnimatableCapability::AnimatableBehavior"
+    },
+    {
+      "name": "ButtonFSM",
+      "type": "ButtonStates::ButtonFSM"
     },
     {
       "name": "Effect",
